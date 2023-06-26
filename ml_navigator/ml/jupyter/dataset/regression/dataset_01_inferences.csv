@@ -1,0 +1,12 @@
+,Unnamed: 0,car_ID,symboling,CarName,fueltype,aspiration,doornumber,carbody,drivewheel,enginelocation,wheelbase,carlength,carwidth,carheight,curbweight,enginetype,cylindernumber,enginesize,fuelsystem,boreratio,stroke,compressionratio,horsepower,peakrpm,citympg,highwaympg,Unnamed: 0,price,car_ID
+0,77,78,2,mitsubishi lancer,gas,std,two,hatchback,fwd,front,93.7,157.3,64.4,50.8,1944,ohc,four,92,2bbl,2.97,3.23,9.4,68,5500,31,38,77,6189.0,78
+1,69,70,0,buick century,diesel,turbo,two,hardtop,rwd,front,106.7,187.5,70.3,54.9,3495,ohc,five,183,idi,3.58,3.64,21.5,123,4350,22,25,69,28176.0,70
+2,30,31,2,honda civic,gas,std,two,hatchback,fwd,front,86.6,144.6,63.9,50.8,1713,ohc,four,92,1bbl,2.91,3.41,9.6,58,4800,49,54,30,6479.0,31
+3,172,173,2,toyota cressida,gas,std,two,convertible,rwd,front,98.4,176.2,65.6,53.0,2975,ohc,four,146,mpfi,3.62,3.5,9.3,116,4800,24,30,172,17669.0,173
+4,142,143,0,subaru brz,gas,std,four,sedan,fwd,front,97.2,172.0,65.4,52.5,2190,ohcf,four,108,2bbl,3.62,2.64,9.5,82,4400,28,33,142,7775.0,143
+5,144,145,0,subaru r1,gas,std,four,sedan,4wd,front,97.0,172.0,65.4,54.3,2385,ohcf,four,108,2bbl,3.62,2.64,9.0,82,4800,24,25,144,9233.0,145
+6,37,38,0,honda accord,gas,std,two,hatchback,fwd,front,96.5,167.5,65.2,53.3,2236,ohc,four,110,1bbl,3.15,3.58,9.0,86,5800,27,33,37,7895.0,38
+7,2,3,1,alfa-romero Quadrifoglio,gas,std,two,hatchback,rwd,front,94.5,171.2,65.5,52.4,2823,ohcv,six,152,mpfi,2.68,3.47,9.0,154,5000,19,26,2,16500.0,3
+8,153,154,0,toyota corona hardtop,gas,std,four,wagon,fwd,front,95.7,169.7,63.6,59.1,2280,ohc,four,92,2bbl,3.05,3.03,9.0,62,4800,31,37,153,6918.0,154
+9,120,121,1,plymouth fury iii,gas,std,four,hatchback,fwd,front,93.7,157.3,63.8,50.6,1967,ohc,four,90,2bbl,2.97,3.23,9.4,68,5500,31,38,120,6229.0,121
+10,170,171,2,toyota tercel,gas,std,two,hardtop,rwd,front,98.4,176.2,65.6,52.0,2679,ohc,four,146,mpfi,3.62,3.5,9.3,116,4800,24,30,170,11199.0,171

@@ -1,0 +1,27 @@
+[tool.poetry]
+name = "ml_navigator"
+version = "0.1.0"
+description = ""
+authors = ["pmattei <paul.mattei@cogepart.com>", "louis cuel <louiscuel@yahoo.fr>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+certifi = "^2022.12.7"
+pandas = "1.5"
+numpy = "1.22.3"
+dash = "^2.8.1"
+dash-mantine-components = "^0.12.0"
+dash-bootstrap-components = "^1.4.0"
+scikit-learn = "^1.0.1"
+jupyter = "^1.0.0"
+scikit-optimize = "^0.9.0"
+plotly = "^5.13.1"
+tqdm-joblib = "^0.0.3"
+statsmodels = "^0.14.0"
+catboost = "1.0.6"
+darts = "^0.24.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

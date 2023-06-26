@@ -1,0 +1,385 @@
+@import url("https://fonts.googleapis.com/css2?family=Cabin&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap");
+
+html {
+    scrollbar-width: none;
+    overflow-x: hidden;
+    overscroll-behavior: none;
+    overscroll-behavior-y: none;
+}
+
+body{
+    height: 100vh;
+    overflow-x: hidden;
+    scrollbar-width: none;
+    overscroll-behavior-y: none;
+    overscroll-behavior: none;
+    
+}
+
+h1, h2, h3, h4{
+    font-family: "Cabin", cursive !important;
+    color: white;
+}
+
+h1 {
+    font-size: 50px;
+    margin-bottom: 0;
+    background: unset !important;
+    margin: auto;
+    position: relative;
+    animation: translatein ease-out 2s;
+}
+
+#_dash-app-content > div{
+    scrollbar-width: none;
+    border: solid 1px;
+    border-color: orange;
+}
+
+#container{
+    background: #786947;
+    position: relative;
+    background: rgb(48 48 48);
+    /* background-image: linear-gradient(to bottom, rgba(48,48,48,1) 19%, rgb(20, 20, 20) 84%); */
+    height: 100vh;
+    overflow-y: hidden;
+}
+
+
+#container-inferences{
+    left: 200vw;
+}
+#container-metrics{
+    left: 100vw;
+    background: #111;
+}
+#container-metrics > div > div > div:not(:first-child){
+    margin-top: 2%;
+}
+#container-metrics > div{
+    margin-bottom: 0 !important;
+}
+
+#container-layouts{
+    margin: auto;
+    width: 100%;
+    transform: translateX(5%);
+    animation: fadein ease-in 2s;
+}
+
+#container-metrics > div > div{
+    background: #111111;
+}
+
+#container-inputs, #container-metrics, #container-inferences{
+    width: 90%;
+    margin: 2.5% auto 2.5% auto;
+    position: absolute;    
+}
+
+#input-items-ml-models-params > input{
+    color: white;
+}
+
+#container-inputs > div > h3, #container-metrics > div > h3, #container-inferences > div > h3{
+    background: rgb(26 28 29) !important;
+}
+/* , #input-items-start-training */
+#input-items-ml-pb, #input-items-features, #input-items-target, #input-items-ml-models, .input-items-ml-models-params, #input-items-autotune, #input-upload-inferences{
+    visibility: hidden;
+    margin-top: 0;
+}
+
+.input-items{
+    margin-top: 1.5em !important;
+    margin-bottom: 1.5em;
+}
+#container-layouts * {
+    font-family: "Noto Sans", cursive;
+}
+
+#input-items-group1{
+    width: 45%;
+    display: inline-block;
+}
+
+#input-items-group2{
+    vertical-align: top;
+    width: 50%;
+    margin: 0% 0% 0% 5%;
+    display: inline-flex;
+    justify-content: space-around; 
+}
+
+#input-items-group3{
+    vertical-align: top;
+    width: 50%;
+    display: inline-block;
+}
+
+#input-items-group2 > div{
+    width: 45%;
+    display: inline-block;
+    vertical-align: top;
+}
+
+#input-items-group2 > div > div, #input-items-group2 > div > input{
+    margin-bottom: 3%;
+    height: 40px;
+}
+
+.input-items-ml-models-params{
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+}
+
+.input-upload{
+    width: 100%;
+    height: 60px;
+    line-height: 60px;
+    border-width: 1px;
+    border-style: dashed;
+    border-radius: 5px;
+    text-align: center;
+    color: #f0bb65;
+}
+.input-upload > div{
+    color: white;
+}
+
+#input-items-target{
+    width: 30%;
+}
+
+#input-item-autotune{
+    visibility: hidden;
+}
+
+/* #input-items-feature-inference{
+    visibility: hidden;
+} */
+
+#input-items-features-inference{
+    margin-bottom: 1%;
+}
+
+#input-start-training{
+    margin: auto;
+    display: block;
+    font-size: 22px;
+}
+
+#button-previous{
+    transform: rotate(270deg);
+    position: fixed;
+    top: 50vh;
+    left: -1.75em;
+    width: 150px;
+    height: 60px;
+    font-size: 2em;
+    /* text-shadow: 0 0 3px rgba(255,255,255,.6),0 0 3px rgba(255,255,255,.5),0 0 .5rem rgba(255,255,255,.3),0 0 2rem rgba(255,255,255,.2); */
+    text-align: left;
+    font-family: "Cabin", cursive !important;
+    visibility: hidden;
+}
+.form-control:focus {
+    color: #303030;
+    background-color: #505c69;
+}
+
+#button-next{
+    transform: rotate(270deg);
+    position: fixed;
+    top: 50vh;
+    right: -1.6em;
+    width: 150px;
+    height: 60px;
+    font-size: 2em;
+    /* text-shadow: 0 0 3px rgba(255,255,255,.6),0 0 3px rgba(255,255,255,.5),0 0 .5rem rgba(255,255,255,.3),0 0 2rem rgba(255,255,255,.2); */
+    text-align: center;
+    font-family: "Cabin", cursive !important;
+}
+
+#model-selected{
+    position: fixed;
+    top: 100vh;
+    height: 20vh;
+    width: 99.9vw;
+    /*  */
+  }
+#model-selected-title, #model-selected>.card-body{
+    padding-left: 0.5vw !important;
+}
+#dataviz-items-training-results-additional > div{
+    /* width: 45%; */
+    max-height: 600px;
+    /* display: inline-block; */
+}
+#dataviz-items-training-results-additional{
+    justify-content: space-around;
+    display: flex;
+    max-height: 600px;
+}
+
+/* spécifique */
+#input-ml-pb{
+    width: 100%;
+    display: table;
+    table-layout: fixed;
+}#input-ml-pb > div{
+    display: table-cell;
+}
+#input-ml-pb > div > label{
+    font-size: 14px;
+}
+
+.form-check-label.btn.btn-outline-primary{
+    width: 100%;
+}
+.btn-group > div:first-child{
+    padding-left: 0 !important;
+}
+
+#input-target-label, #input-date-format-label, #input-features-label, #input-features-label, .mantine-1jc5t4g.mantine-Switch-label, .input-upload > div, .input-upload> div > a, .mantine-InputWrapper-label{
+    color: white !important;
+    text-shadow: 0 0 3px rgba(255,255,255,.6),0 0 2px rgba(255,255,255,.3),0 0 .3rem rgba(255,255,255,.2),0 0 2rem rgba(255,255,255,.1);
+    font-size: 20px !important;
+}
+#input-date-format{
+    width: 20%;
+    color: white;
+}
+#input-item-date-format{
+    display: none;
+}
+
+label{
+    font-size: 16px !important;
+}
+
+
+.mantine-Radio-labelWrapper{
+    color: white;
+}
+.form-check-label{
+    width: 100%;
+}
+.mantine-149ccxv
+{
+    color: white;
+}
+.mantine-fqghar{
+    background: #181a1b;;
+    color: white;
+    border: solid 1px;
+    border-color: orange;
+}
+
+.mantine-UnstyledButton-root.mantine-ActionIcon-root.mantine-tzgcu0, svg{
+    color: #f0bb65 !important;
+}
+.mantine-UnstyledButton-root.mantine-ActionIcon-root.mantine-MultiSelect-defaultValueRemove.mantine-zo2naa{
+    color: black;
+}
+/* .mantine-zo2naa, .mantine-Radio-label{
+    color: white;
+    text-shadow: 0 0 3px rgba(255,255,255,.6),0 0 2px rgba(255,255,255,.3),0 0 .3rem rgba(255,255,255,.2),0 0 2rem rgba(255,255,255,.1);
+
+}
+.mantine-MultiSelect-wrapper, #input-date-format, .mantine-Select-wrapper, .input-items-ml-models-params, .mantine-NumberInput-wrapper>input{
+    box-shadow: 0 0 1px #786947, 0 0 1px #786947, 0 0 1rem #786947, 0 0 1rem #786947
+} */
+.mantine-MultiSelect-input, .mantine-Select-input, .input-items-ml-models-params, .mantine-Switch-track, .mantine-NumberInput-wrapper>input, .mantine-Input-input{
+    background: #181a1b;
+    border: 2px solid #f0bb65;
+}
+.mantine-zunujd:focus, .mantine-zunujd:focus-within, .mantine-149ccxv:focus, .mantine-149ccxv:focus-within, .input-items-ml-models-params:focus, .input-items-ml-models-params:focus-within{
+    border-color: white;
+}
+.cell--selected {
+    background-color: #f0bb65 !important;
+}
+ 
+.model-selected > div, #container-inputs > div > div{
+    padding: 0 1%;
+}
+
+#model-selected-title{
+    padding: .5% 0;
+}
+
+.mantine-NumberInput-root{
+    margin-top: 1em;
+    width: 15em;
+}
+#input-autotune-n-iter, #input-horizon, #input-horizon-description, .mantine-NumberInput-control, #input-autotune-n-iter-description, mantine-Input-input{
+    color: white;
+}
+
+td.dash-cell {
+    border-color: white !important;
+}
+.card-body{
+    padding: 0;
+}
+
+.card-body, .card-header {
+    background: #181a1b !important;
+}
+#input-items-ml-models > div > div > div > input{
+    max-height: 40px;
+    min-height: 10px;
+    height: 40px;
+}
+
+#container-metrics > div > h3, #container-inferences > div > h3{
+    border: unset;
+}
+
+tbody, tfoot, th, thead, tr, .td.dash-cell, tr>td {
+    border-color: #786947 !important;
+    border-style: solid;
+    border-width: 1px;
+}
+td.dash-cell {
+    border-color: #786947 !important;
+}
+.mantine-Radio-radio{
+    background: #181a1b;
+    border: solid #f0bb65;
+    border-width: 1px;
+}
+
+ul > li{
+    display: inline-block;
+    margin-right: 5px;
+    border: 2px solid #786947;
+    background: #444444;;
+    padding: 3px;
+}
+
+#handler-loading{
+    position: relative;
+    width: 50px;
+    height: 50px;
+    top: 64vh;
+    left: 43.5vw;
+}
+
+#model-selected-params{
+    padding-left: 0;
+}
+
+text{
+    color: green;
+}
+@keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+@keyframes translatein {
+    from { top: 100px; }
+    to   { top: 0px; }
+}

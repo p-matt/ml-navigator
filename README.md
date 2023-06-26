@@ -3,23 +3,24 @@ ML Navigator is a Python application that facilitates the comparison of machine 
 
 ## Installation
 
-To install the application, follow these steps:
+To install the application, follow these steps :
 
-1. Install `poetry` by running the following command:
-pip install poetry
-2. Generate a lock file for dependencies by executing the command:
-poetry lock
-3. Install the required dependencies by running:
+1. Install `poetry` by running the following command :  
+```pip install poetry```
+2. Generate a lock file for dependencies by executing the command :  
+```poetry lock```
+3. Install the required dependencies by running :
 poetry install
 
 ## Usage
 
-To launch the application, use the following command:
-poetry run python3 app.py
+To launch the application, use the following command :  
+```poetry run python3 app.py```
 
-The application will open in your default web browser, allowing you to interact with its graphical user interface.
 
-### Features
+The application will open in your default web browser, allowing you to interact with its graphical user interface.  
+
+## Features
 
 1. **Load Data**: Load a CSV file containing your data for analysis.
 
@@ -35,7 +36,7 @@ The application will open in your default web browser, allowing you to interact 
 
 ### Results
 
-Once the prediction is complete, ML Navigator provides the following visual representations:
+Once the prediction is complete, ML Navigator provides the following visual representations :
 
 - **Model Errors**: Displays the errors and performance metrics of the selected model.
 

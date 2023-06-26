@@ -3,14 +3,14 @@ ML Navigator is a Python application that facilitates the comparison of machine 
 
 ## Installation
 
-To install the application, follow these steps :
+To install the application, follow these steps from app root :  
 
 1. Install `poetry` by running the following command :  
 ```pip install poetry```
 2. Generate a lock file for dependencies by executing the command :  
 ```poetry lock```
-3. Install the required dependencies by running :
-poetry install
+3. Install the required dependencies by running :  
+```poetry install```
 
 ## Usage
 

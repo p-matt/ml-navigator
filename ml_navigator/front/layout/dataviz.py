@@ -13,6 +13,7 @@ import pandas as pd
 from ml_navigator.front.layout.utils import get_cool_palette
 from ml_navigator.front.settings import PRED_COLNAME
 from ml_navigator.ml.predictor import Predictor
+from  ml_navigator.front.layout.utils import ORANGES
 
 if TYPE_CHECKING: # handle circular import caused to type hinting
     from ml_navigator.front.gateway import DataSession
@@ -52,13 +53,13 @@ def dviz_barchart_metrics(ds: DataSession, metric: str, sort: bool=True, ascendi
     labels = {"x": "Models", "y": metric}
 
     figure = px.bar(ds.df_training_results, x=X, y=y, color=X, title=title, labels=labels, height=300, color_discrete_sequence=get_cool_palette(len(X)), template="plotly_dark")
-    figure.update_layout(legend_title_text="", bargroupgap=0.66, bargap=0, margin={"t": 50, "b": 0}, paper_bgcolor='rgb(24,26,27)', plot_bgcolor='rgb(24,26,27)')
+    figure.update_layout(legend_title_text="", bargroupgap=0.66, bargap=0, margin={"t": 50, "b": 0}, paper_bgcolor="rgb(24,26,27)", plot_bgcolor="rgb(24,26,27)")
     figure.update_xaxes(tickangle=-35, showgrid=False, tickfont={"size": 8})
     figure.update_yaxes(showgrid=False, range=None if metric != "R2" else [0, 1])
 
     return figure
 
-empty_barchart = dcc.Graph(figure=px.bar(height=300, template="plotly_dark").update_layout(paper_bgcolor='rgb(24,26,27)', plot_bgcolor='rgb(24,26,27)'), id="dataviz-barchart-metrics")
+empty_barchart = dcc.Graph(figure=px.bar(height=300, template="plotly_dark").update_layout(paper_bgcolor="rgb(24,26,27)", plot_bgcolor="rgb(24,26,27)"), id="dataviz-barchart-metrics")
 
 
 
@@ -95,9 +96,9 @@ def dviz_confusion_matrix(p: Predictor):
     x = labels
     y = labels
 
-    fig = px.imshow(cm, x=x, y=y, color_continuous_scale=[[0, "#302d2d"],[.25, "#555151"],[.5, "#828282"],[.75, "#b8b8b8"],[1, "#e9e9e9"]])
+    fig = px.imshow(cm, x=x, y=y, color_continuous_scale=[[0, ORANGES[5]],[.25, ORANGES[3]],[.5, ORANGES[2]],[.75, ORANGES[1]],[1, ORANGES[0]]])
 
-    fig.update_layout(title="Confusion Matrix", template="plotly_dark", height=450, paper_bgcolor='rgb(24,26,27)', plot_bgcolor='rgb(24,26,27)')
+    fig.update_layout(title="Confusion Matrix", template="plotly_dark", height=450, paper_bgcolor="rgb(24,26,27)", plot_bgcolor="rgb(24,26,27)")
     fig.update_xaxes(title="Predicted Labels", side="top")
     fig.update_yaxes(title="True Labels")
     fig.update_traces(text=annotations, texttemplate="%{text}")
@@ -117,7 +118,7 @@ def dviz_3dscatter(p: Predictor):
     df = pd.DataFrame({"PC1": x, "PC2": y, "PC3": z, p.y_col: w})
     palette = get_cool_palette(len(set(w)))
     fig = px.scatter_3d(df, x="PC1", y="PC2", z="PC3", color=p.y_col, template="plotly_dark", height=450, color_discrete_sequence=palette, color_continuous_scale=palette)
-    fig.update_layout(title="Principal Components analysis", legend_title_text=p.y_col, legend_title=p.y_col, margin=dict(l=0, r=0, b=20, t=30), paper_bgcolor='rgb(24,26,27)', plot_bgcolor='rgb(24,26,27)')
+    fig.update_layout(title="Principal Components analysis", legend_title_text=p.y_col, legend_title=p.y_col, margin=dict(l=0, r=0, b=20, t=30), paper_bgcolor="rgb(24,26,27)", plot_bgcolor="rgb(24,26,27)")
 
     return fig
 
@@ -133,7 +134,7 @@ def dviz_true_vs_pred(p: Predictor):
 
     fig = go.Figure(data=fig_1.data + fig_2.data)
     fig.layout = fig_1["layout"]
-    fig.update_layout(title="True vs Predicted", margin=dict(l=0, r=0, b=20, t=30), paper_bgcolor='rgb(24,26,27)', plot_bgcolor='rgb(24,26,27)')
+    fig.update_layout(title="True vs Predicted", margin=dict(l=0, r=0, b=20, t=30), paper_bgcolor="rgb(24,26,27)", plot_bgcolor="rgb(24,26,27)")
     return fig
 
 def dviz_timeseries(p: Predictor):
@@ -167,5 +168,5 @@ def dviz_timeseries(p: Predictor):
         # legendgroup=df_pred["entity_cols"].iloc[0],
         opacity=1))
 
-    fig.update_layout(title="Forecast", template="plotly_dark", paper_bgcolor='rgb(24,26,27)', plot_bgcolor='rgb(24,26,27)')
+    fig.update_layout(title="Forecast", template="plotly_dark", paper_bgcolor="rgb(24,26,27)", plot_bgcolor="rgb(24,26,27)")
     return fig

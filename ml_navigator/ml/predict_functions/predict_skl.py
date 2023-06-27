@@ -7,8 +7,8 @@ import pandas as pd
 
 if TYPE_CHECKING: # handle circular import caused to type hinting
     from ml_navigator.ml.model import Model
-pd.options.mode.chained_assignment = None  # default='warn'
-pd.set_option('display.max_rows', None)  # or 1000
+pd.options.mode.chained_assignment = None  # default="warn"
+pd.set_option("display.max_rows", None)  # or 1000
 
 
 

@@ -16,7 +16,7 @@ if TYPE_CHECKING:
 display_item = {"visibility": "visible"}
 hide_item = {"visibility": "hidden"}
 
-ORANGES = ["#f7a23d", "#f8b76d", "#fac29c", "#fbd9cb", "#E65D0E", "#f39c13"][::-1]
+ORANGES = ["#E65D0E", "#f39c13", "#f7a23d", "#f8b76d", "#fac29c", "#fbd9cb"]
 
 
 
@@ -100,7 +100,7 @@ def new_style_inferences_table(ds: DataSession):
 
 
 def get_cool_palette(n_colors: int):
-    palette = np.array(ORANGES)
+    palette = np.array(ORANGES.copy())
     if n_colors > 5:
         return palette
     

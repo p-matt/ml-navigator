@@ -165,7 +165,7 @@ def listen_callbacks(app: Dash, ds: DataSession):
                   Input("input-autotune", "value"))
     def on_click_auto_tune(auto_tune):
         ds.auto_tune = auto_tune
-        autotune_style = hide_item if not auto_tune or auto_tune == "Disabled" else display_item
+        autotune_style = hide_item if not auto_tune or auto_tune in ("disabled", "bayesian optim") else display_item
         return autotune_style
     
     @app.callback(Output("handler-03", "style"),

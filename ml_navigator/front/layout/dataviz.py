@@ -82,13 +82,13 @@ dviz_table_inferences = dash_table.DataTable(
     cell_selectable=True,
     page_action="native",
     page_current=0,
-    page_size=25,
+    page_size=5,
     id="dataviz-inferences-results")
 
 
 def dviz_confusion_matrix(p: Predictor):
     y_true = list(map(str, p.y_test))
-    y_pred = list(map(str, p.model.y_preds_test))
+    y_pred = list(map(str, p.model.y_pred_test))
     labels = np.unique(y_true).astype(str).tolist()
 
     cm = confusion_matrix(y_true, y_pred).tolist()
@@ -124,11 +124,11 @@ def dviz_3dscatter(p: Predictor):
 
 
 def dviz_true_vs_pred(p: Predictor):
-    y_trues = np.concatenate([p.y_train, p.y_test]).ravel()
-    y_preds = np.concatenate([p.model.y_preds_train, p.model.y_preds_test]).ravel()
+    y_true = np.concatenate([p.y_train, p.y_test]).ravel()
+    y_pred = np.concatenate([p.model.y_pred_train, p.model.y_pred_test]).ravel()
     split = ["Train"] * p.y_train.shape[0] + ["Test"] * p.y_test.shape[0]
     palette = get_cool_palette(2)
-    df = pd.DataFrame({"True values": y_trues, "Predicted values": y_preds, "Split": split})
+    df = pd.DataFrame({"True values": y_true, "Predicted values": y_pred, "Split": split})
     fig_1 = px.scatter(df, x="True values", y="Predicted values", color="Split", template="plotly_dark", height=450, color_discrete_sequence=palette, color_continuous_scale=palette, log_x=True, log_y=True)
     fig_2 = px.line(df, x="True values", y="True values", template="plotly_dark", height=450, log_x=True, log_y=True)
 
@@ -143,7 +143,7 @@ def dviz_timeseries(p: Predictor):
     else:
         X_test = p.model.predictor.X_test.filter(items=["date", "dates", "DATE"]).iloc[:, 0]
     df_true = pd.DataFrame({"date": pd.to_datetime(p.model.predictor.X.filter(items=["date", "dates", "DATE"]).iloc[:, 0], format=p.date_format), "y": p.y}).sort_values("date")
-    df_pred = pd.DataFrame({"date": pd.to_datetime(X_test, format=p.date_format), "y": p.model.y_preds_test}).sort_values("date")
+    df_pred = pd.DataFrame({"date": pd.to_datetime(X_test, format=p.date_format), "y": p.model.y_pred_test}).sort_values("date")
 
     fig = go.Figure()
     palette = get_cool_palette(2)

@@ -24,14 +24,14 @@ def forecast_stm(model: Model, X_train: pd.DataFrame, y_train: np.ndarray, X_pre
         model.estimator = model.estimator.fit(**fit_parameters)
         # Prediction of the model and update the outpout DataFrame
         sarimax_predictions = model.estimator.get_forecast(**predict_parameters).summary_frame(alpha=.8)
-        model.y_preds_test = sarimax_predictions["mean"].values
+        model.y_pred_test = sarimax_predictions["mean"].values
         # predict_parameters = {"steps": len(train_endog)}
         # sarimax_predictions = res.get_forecast(**predict_parameters).summary_frame(alpha=.8)
-        # model.y_preds_train = sarimax_predictions["mean"].values
+        # model.y_pred_train = sarimax_predictions["mean"].values
         del params_model["endog"]
         model.params = params_model
     elif context == "infer":
         sarimax_predictions = model.estimator.get_forecast(**predict_parameters).summary_frame(alpha=.8)
-        model.y_preds_inference = sarimax_predictions["mean"].values
+        model.y_pred_inference = sarimax_predictions["mean"].values
     
     

@@ -52,9 +52,7 @@ def compute_training_process(ds: DataSession) -> List[dict]:
         model_id = f"{model_name} {bag_of_model_names.pop()}"
         p = Predictor(ds.df_train.copy(), ds.X_cols, ds.y_col, model_name, model_param, ds.auto_tune, ds.auto_tune_n_iter, ds.ml_pb, ds.date_format, model_id)
         data_metrics = p.evaluate()
-        row = {"model_object": p.model, "Model": p.model.id} | data_metrics
-        df_row = pd.DataFrame([row])
-        ds.df_training_results = pd.concat([ds.df_training_results, df_row], ignore_index=True)
+        ds.df_training_results = pd.concat([ds.df_training_results, pd.DataFrame([{"model_object": p.model, "Model": p.model.id} | data_metrics])], ignore_index=True)
         p.model.dviz_1 = dcc.Graph(figure=dviz_3dscatter(p)) if ds.ml_pb in ("Classification", "Regression") else dcc.Graph(figure=dviz_timeseries(p))
         p.model.dviz_2 = dcc.Graph(figure=dviz_confusion_matrix(p)) if ds.ml_pb == "Classification" else dcc.Graph(figure=dviz_true_vs_pred(p)) if ds.ml_pb == "Regression" else None
         p.model.dviz_params = [html.Li(f"{k}:{v}") for k,v in p.model.params.items()]
@@ -80,7 +78,7 @@ def compute_inferences_process(ds: DataSession, df: pd.DataFrame):
     ds.df_inference = df
     ds.model_selected.predictor.infer(df)
     if ds.ml_pb == "Regression":
-        y_preds = list(map(lambda x: round(x, 2), ds.model_selected.y_preds_inference))
+        y_pred = list(map(lambda x: round(x, 2), ds.model_selected.y_pred_inference))
     else:
-        y_preds = ds.model_selected.y_preds_inference
-    df.insert(df.shape[1], PRED_COLNAME, y_preds)
+        y_pred = ds.model_selected.y_pred_inference
+    df.insert(df.shape[1], PRED_COLNAME, y_pred)

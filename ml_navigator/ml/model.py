@@ -83,9 +83,9 @@ class Model:
         self.params_search_space: dict = MODELS_PARAMS_SEARCH_SPACE[ml_type][name]
         self.params: dict = {}
 
-        self.y_preds_train: np.array = None
-        self.y_preds_test: np.array = None
-        self.y_preds_inference: np.array = None
+        self.y_pred_train: np.array = None
+        self.y_pred_test: np.array = None
+        self.y_pred_inference: np.array = None
 
         self.dviz_1 = None
         self.dviz_2 = None

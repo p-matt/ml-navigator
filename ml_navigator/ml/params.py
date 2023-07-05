@@ -1,7 +1,6 @@
 from __future__ import annotations # handle circular import caused to type hinting
 import itertools
 from typing import TYPE_CHECKING, Literal, Union
-import itertools as it
 from joblib import Parallel, delayed
 from functools import partial
 
@@ -133,8 +132,7 @@ MANDATORY_PARAMS = {
 }
 
 def compute_model_parameters(predictor: Predictor):
-    method = "grid search" if predictor.auto_tune == "Grid search" else "bayesian" if predictor.auto_tune == "Bayesian optim" else ""
-    parameters = optimize(predictor, method) if method else predictor.model.params_user
+    parameters = optimize(predictor) if predictor.auto_tune != "disabled" else predictor.model.params_user
 
     for key, value in predictor.model.params_mandatory.items():
         if not key in parameters:
@@ -145,7 +143,7 @@ def compute_model_parameters(predictor: Predictor):
 def get_grid_length(predictor: Predictor) -> int:
     return int(np.exp(np.log(predictor.auto_tune_n_iter) / len(predictor.model.params_search_space))) + 1
 
-def get_search_space(predictor: Predictor, method: Literal["grid search", "bayesian"]) -> dict | list:
+def get_search_space(predictor: Predictor, method: Literal["grid search", "bayesian optim"]) -> dict | list:
     grid_len = get_grid_length(predictor)
     search_space = [] if method == "bayesian" else {}
     for key in predictor.model.params_search_space.keys():
@@ -227,7 +225,7 @@ def combinations(params_grid):
         for i in params_grid:
             yield from ([i] if not isinstance(i, (dict, list)) else combinations(i))
     else:
-        for i in it.product(*map(combinations, params_grid.values())):
+        for i in itertools.product(*map(combinations, params_grid.values())):
             yield dict(zip(params_grid.keys(), i))
 
 
@@ -236,7 +234,6 @@ def evaluate_model(model: Model, X_train_scaled: np.ndarray, y_train: np.ndarray
     evaluate r2 or f1score of a model
     """
     model.predict(model, X_train_scaled, y_train, X_test_scaled, model_params, "evaluate")
-    metrics_params["y_pred"] = model.y_preds_test
+    metrics_params["y_pred"] = model.y_pred_test
     metric = metrics_function(**metrics_params)
     return metric
-

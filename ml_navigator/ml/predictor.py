@@ -157,16 +157,16 @@ class Predictor():
 
         if self.ml_pb in ("Regression", "Forecast"):
             data_metrics = {
-                "MAPE": round(mean_absolute_percentage_error(self.y_test, self.model.y_preds_test), 2),
-                "MAE": round(mean_absolute_error(self.y_test, self.model.y_preds_test), 2),
-                "RMSE": round(mean_squared_error(self.y_test, self.model.y_preds_test, squared=False), 2),
-                "R2": round(r2_score(self.y_test, self.model.y_preds_test), 2)
+                "MAPE": round(mean_absolute_percentage_error(self.y_test, self.model.y_pred_test), 2),
+                "MAE": round(mean_absolute_error(self.y_test, self.model.y_pred_test), 2),
+                "RMSE": round(mean_squared_error(self.y_test, self.model.y_pred_test, squared=False), 2),
+                "R2": round(r2_score(self.y_test, self.model.y_pred_test), 2)
             }
         elif self.ml_pb == "Classification":
              data_metrics = {
-                "F1": round(f1_score(self.y_test, self.model.y_preds_test, average=avg, pos_label=pos_label), 2),
-                "Precision": round(precision_score(self.y_test, self.model.y_preds_test, average=avg, pos_label=pos_label), 2),
-                "Recall": round(recall_score(self.y_test, self.model.y_preds_test, average=avg, pos_label=pos_label), 2),
-                "Accuracy": round(accuracy_score(self.y_test, self.model.y_preds_test), 2)
+                "F1": round(f1_score(self.y_test, self.model.y_pred_test, average=avg, pos_label=pos_label), 2),
+                "Precision": round(precision_score(self.y_test, self.model.y_pred_test, average=avg, pos_label=pos_label), 2),
+                "Recall": round(recall_score(self.y_test, self.model.y_pred_test, average=avg, pos_label=pos_label), 2),
+                "Accuracy": round(accuracy_score(self.y_test, self.model.y_pred_test), 2)
             }
         return data_metrics

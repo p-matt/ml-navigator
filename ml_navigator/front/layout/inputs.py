@@ -59,8 +59,8 @@ inp_ml_models_params = lambda id: dcc.Input(id=f"input-ml-models-params-{id}", t
 
 
 inp_auto_tune = dmc.RadioGroup(
-    [dmc.Radio(label=v, value=v, color="gray") for v in ["Disabled", "Grid search", "Bayesian optim"]],
-    value="Disabled",
+    [dmc.Radio(label=v.lower(), value=v.lower(), color="gray") for v in ["Disabled", "Grid search", "Bayesian optim"]],
+    value="disabled",
     label="Auto tuning",
     size="sm",
     mt=10,
@@ -68,7 +68,7 @@ inp_auto_tune = dmc.RadioGroup(
     style={"color": "white"})
 
 inp_auto_tune_n_iter = dmc.NumberInput(
-    description="Define the length of the search space",
+    description="Define the length of the grid",
     stepHoldDelay=500,
     stepHoldInterval=100,
     value=100,

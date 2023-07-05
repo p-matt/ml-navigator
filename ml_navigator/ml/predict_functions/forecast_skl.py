@@ -15,9 +15,9 @@ def forecast_skl(model: Model, X_train: pd.DataFrame, y_train: np.ndarray, X_pre
     model.estimator = model._estimator_base(**params_model)
     model.estimator.fit(X_train["date"].to_numpy().reshape(-1, 1), y_train)
     if context == "evaluate":
-        model.y_preds_train = model.estimator.predict(X_train["date"].to_numpy().reshape(-1, 1))
-        model.y_preds_test = model.estimator.predict(X_pred["date"].to_numpy().reshape(-1, 1))
+        model.y_pred_train = model.estimator.predict(X_train["date"].to_numpy().reshape(-1, 1))
+        model.y_pred_test = model.estimator.predict(X_pred["date"].to_numpy().reshape(-1, 1))
     elif context == "infer":
-        model.y_preds_inference = model.estimator.predict(X_pred["date"].to_numpy().reshape(-1, 1))
+        model.y_pred_inference = model.estimator.predict(X_pred["date"].to_numpy().reshape(-1, 1))
         
     model.params = model.estimator.get_params()

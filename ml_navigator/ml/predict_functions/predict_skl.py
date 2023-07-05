@@ -17,9 +17,9 @@ def predict_skl(model: Model, X_train: pd.DataFrame, y_train: np.ndarray, X_pred
     model.estimator.fit(X_train, y_train.reshape(-1, 1))
 
     if context == "evaluate":
-        model.y_preds_train = np.array(model.estimator.predict(X_train))
-        model.y_preds_test = np.array(model.estimator.predict(X_pred))
+        model.y_pred_train = np.array(model.estimator.predict(X_train))
+        model.y_pred_test = np.array(model.estimator.predict(X_pred))
     elif context == "infer":
-        model.y_preds_inference = np.array(model.estimator.predict(X_pred))
+        model.y_pred_inference = np.array(model.estimator.predict(X_pred))
    
     model.params = model.estimator.get_params()
